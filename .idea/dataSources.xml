@@ -7,5 +7,16 @@
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/src/Database/Student_Course_Grade</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="Student_Course_Grade [2]" uuid="01e4e3f5-7c38-41dc-bd12-8c27fc4958ae">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\Ulrik\IdeaProjects\FinalPortofolio3\out\production\FinalPortofolio3\Database\Student_Course_Grade</jdbc-url>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/Xerial SQLiteJDBC/3.31.1/sqlite-jdbc-3.31.1.jar</url>
+        </library>
+      </libraries>
+    </data-source>
   </component>
 </project>
