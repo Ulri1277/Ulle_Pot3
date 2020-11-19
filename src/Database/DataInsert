@@ -4,7 +4,7 @@ INSERT INTO Courses (CourseName, CourseID, Year, Semester, Lector) VALUES ('Soft
                                                                           ('Software Development','SDS',2020,'Spring','Line R'),
                                                                           ('Essential Computing 1','ES1',2019,'Autumn','Ebbe W');
 
--- Making table for students with their name, living place and the studentID
+-- Making table for students contaning the student tables attributes
 INSERT INTO Student(StudentID, StudentName, City) VALUES   ('31', 'Olaf Olesen',     'Odense'),
                                                            ('32', 'Alfred Jensen',   'Camas'),
                                                            ('33', 'Aisha Lincoln',   'Nykoobing_F'),
@@ -16,7 +16,7 @@ INSERT INTO Student(StudentID, StudentName, City) VALUES   ('31', 'Olaf Olesen',
                                                            ('39', 'Albert Antonsen', 'Soroe'),
                                                            ('40', 'Theis Thomasen',  'Toolloose');
 
-
+-- making a tabel for the grades for the given students courses
 INSERT INTO Grades(CID, SID, Grade) VALUES                      ('SDA', '31',12),
                                                                 ('ES1','31',12),
 

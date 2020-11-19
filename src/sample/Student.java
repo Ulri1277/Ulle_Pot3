@@ -1,6 +1,6 @@
 package sample;
 
-// saves the retrives data from the database by creating object.
+// saves the retrieves data in a object for students
 public class Student {
     private final String Name;
     private final String SID;
@@ -17,7 +17,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return SID + '\'' + Name + '\'';
+        return SID + ": " + Name;
     }
 
 }

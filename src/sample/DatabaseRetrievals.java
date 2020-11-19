@@ -1,8 +1,5 @@
 package sample;
 
-
-// dot
-
 import javafx.collections.ObservableList;
 
 import java.sql.*;
@@ -53,7 +50,7 @@ public class DatabaseRetrievals {
             String Name = ResSet_Student.getString(2);
 
 
-            System.out.println(Name + "  " + SID);
+            System.out.println(Name + " " + SID);
 
             // make a observable list there saves the retrieved data
             Student student = new Student(Name, SID);
@@ -69,7 +66,7 @@ public class DatabaseRetrievals {
         // checks if there are connection to the database
         ConnectTo();
 
-        System.out.println("Running button event action ");
+        System.out.println("button event action running ");
 
         // SQL code there selects the data on all student, their courses and the grade of the given course.
         String SQL_Information_Student = "SELECT S1.StudentName, G1.CID, G1.Grade " +
@@ -77,6 +74,7 @@ public class DatabaseRetrievals {
                 "JOIN Grades AS G1 on S1.StudentID = G1.SID " +
                 "WHERE StudentID = ?;";
 
+        // SQL for the average grade of a selected student with a uniq studentID
         String SQL_AVG_Student = "SELECT AVG(Grade) " +
                 "FROM Grades " +
                 " WHERE SID = ?;";
@@ -95,12 +93,13 @@ public class DatabaseRetrievals {
             }
             while (ResSetInfo != null && ResSetInfo.next()) {
                 if (ResSetInfo.getString(2) == null) {
-                    textAreaMessage += ResSetInfo.getString(2) + " " + ResSetInfo.getString(2) + " (not graded yet)\n";
+                    textAreaMessage += ResSetInfo.getString(2) + "   " + ResSetInfo.getString(2) + " (not graded yet)\n";
                 } else {
-                    textAreaMessage += ResSetInfo.getString(2) + " " + ResSetInfo.getString(1) + " "
+                    textAreaMessage += ResSetInfo.getString(2) + "   " + ResSetInfo.getString(1) + " "
                             + ResSetInfo.getInt(3) + "\n";
                 }
             }
+            // prepared statement for the student average grade
             PreparedStatement PPAVG = connection.prepareStatement(SQL_AVG_Student);
 
             PPAVG.setString(1, StudentID);
@@ -145,8 +144,6 @@ public class DatabaseRetrievals {
             String Semester = ReSet_Courses.getString(4);
             String Lector = ReSet_Courses.getString(5);
 
-            System.out.println(CourseName + " " + CourseID + " " + Year + " " + Semester + " " + Lector);
-
             // Makes a new list there storages the data gotten from the database
             Course course = new Course(CourseName, CourseID, Year, Semester, Lector);
             courses.add(course);
@@ -156,7 +153,7 @@ public class DatabaseRetrievals {
 
     // Prepared statement to find information about the given student
     public String PepStatement_Info_Course(String CourseID) {
-        String textAreaMessage = "";
+        String textAreaMessage = "  ";
 
         ConnectTo();
 
@@ -179,7 +176,7 @@ public class DatabaseRetrievals {
                 if (rsCourse.getString(1) == null) {
                     textAreaMessage += "Course " + CourseID + " has not given grades yet.\n";
                 } else {
-                    textAreaMessage += "Course " + CourseID + " has an average grade of " + rsCourse.getFloat(1) + "\n";
+                    textAreaMessage += CourseID + "  has an average grade of  " + rsCourse.getFloat(1) + "\n";
                 }
             }
         } catch (SQLException S) {
@@ -188,7 +185,6 @@ public class DatabaseRetrievals {
         }
         return textAreaMessage;
     }
-
 
     // Imports the student data where the students have not received a grade yet. and makes them into a observable list
     // which we later can change
@@ -207,14 +203,16 @@ public class DatabaseRetrievals {
         while (ReSet_NullStudents != null && ReSet_NullStudents.next()) {
             String ID = ReSet_NullStudents.getString(1);
             String Name = ReSet_NullStudents.getString(2);
+
             System.out.println(ID + " " + Name);
+
             Student student = new Student(Name, ID);
             NullStudents.add(student);
         }
         return NullStudents;
     }
 
-    // Imports the Course data where a course has not given grades yet.
+    // Fecthes the courses there do not have been given grades for its students
     public ObservableList<Course> QueryStatement_NullCourses(ObservableList<Course> NullCourses) throws SQLException {
         System.out.println("\nFetching Null Courses...");
 
@@ -235,14 +233,14 @@ public class DatabaseRetrievals {
             String Semester = ReSet_NullCourse.getString(4);
             String Lector = ReSet_NullCourse.getString(5);
 
-            System.out.println(CourseName + " " + CourseID + " " + Lector + " " + Semester + " " + Year);
+            //System.out.println(CourseName + " " + CourseID + " " + Lector + " " + Semester + " " + Year);
             Course course = new Course(CourseName, CourseID, Year, Semester, Lector);
             NullCourses.add(course);
         }
         return NullCourses;
     }
 
-    // Updates a grade based on the comboBox choices when inserting a grade.
+    // Updates the selected students grade for a given course if there has not been given a grade.
     public String PepStatement_Insert_Grade(String StudentID, String CourseID, Integer Grade) {
         String textAreaMessage = "";
 
@@ -262,7 +260,7 @@ public class DatabaseRetrievals {
             Integer rsInsertGrade = pstmtInsertGrade.executeUpdate();
 
             if (rsInsertGrade == 0) {
-                textAreaMessage += "Student " + StudentID + " has already received a grade in course "
+                textAreaMessage += "Student" + StudentID + " has already received a grade in course "
                         + CourseID + ".\n";
             }
             if (rsInsertGrade == 1) {
@@ -279,6 +277,7 @@ public class DatabaseRetrievals {
         return textAreaMessage;
     }
 
+    // makes sure that the added grades are cleared form the database as the user interface are closed
     public void ClearingOfUpdatingGrade() throws SQLException {
         System.out.println("\nCleaning");
 

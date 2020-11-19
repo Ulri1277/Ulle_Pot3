@@ -8,11 +8,11 @@
     <Tab text="Find, Selected and change information in registering">
         <GridPane>
             <FlowPane GridPane.rowIndex="0">
-                <Label text="Choose Student Information:">
+                <Label text="Choose student:">
                 </Label>
                 <ComboBox fx:id="comboBoxSearchStudentID">
                 </ComboBox>
-                <Button fx:id="buttonSearchForInfoStudent" onAction="#searchForInfoStudent" text="Start Search"
+                <Button fx:id="buttonSearchForInfoStudent" onAction="#searchForInfoStudent" text="Search"
                         GridPane.columnIndex="1" GridPane.rowIndex="1">
                 </Button>
                 <GridPane.margin>
@@ -26,10 +26,10 @@
                 </GridPane.margin>
             </TextArea>
             <FlowPane GridPane.rowIndex="2">
-                <Label text="Choose Course Information:">
+                <Label text="Choose Course :">
                 </Label>
                 <ComboBox fx:id="comboBoxSearchCourseID"/>
-                <Button fx:id="buttonStartSearch" onAction="#searchForInfoCourse" text="Start Search">
+                <Button fx:id="buttonStartSearch" onAction="#searchForInfoCourse" text="Search">
                     <FlowPane.margin>
                         <Insets/>
                     </FlowPane.margin>
@@ -39,12 +39,12 @@
                 </GridPane.margin>
             </FlowPane>
             <TextArea fx:id="textAreaInfoCourse" minHeight="60.0" minWidth="450.0"
-                      text="Course chosen, number of students, average grade in the course" GridPane.rowIndex="3">
+                      text="Course , number of attendants, average grade for course" GridPane.rowIndex="3">
                 <GridPane.margin>
                     <Insets bottom="10.0" left="10.0" right="10.0"/>
                 </GridPane.margin>
             </TextArea>
-            <Label text="Insert new grade for an ungraded student." GridPane.rowIndex="4">
+            <Label text="Insert grade." GridPane.rowIndex="4">
                 <GridPane.margin>
                     <Insets bottom="10.0" left="10.0" right="10.0"/>
                 </GridPane.margin>
@@ -56,13 +56,13 @@
                 <ComboBox fx:id="comboBoxCoursesInsertGrade"/>
                 <Label text="Choose Grade:"/>
                 <ComboBox fx:id="comboBoxGradesInsertGrade"/>
-                <Button fx:id="buttonInsertGrade" onAction="#insertGrade" text="Insert Grade!"/>
+                <Button fx:id="buttonInsertGrade" onAction="#insertGrade" text="Insert"/>
                 <GridPane.margin>
                     <Insets bottom="10.0" left="10.0" right="10.0"/>
                 </GridPane.margin>
             </FlowPane>
             <TextArea fx:id="textAreaInsertGrade" minHeight="60.0" minWidth="450.0"
-                      text="No new grades added for a student yet." GridPane.rowIndex="6">
+                      text="No new grades given." GridPane.rowIndex="6">
                 <GridPane.margin>
                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
                 </GridPane.margin>

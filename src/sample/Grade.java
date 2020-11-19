@@ -1,9 +1,10 @@
 package sample;
 
+// makes a class for the retrieved information on the grades
 public class Grade {
-    private String SID;
-    private String CID;
-    private Integer Grade;
+    private final String SID;
+    private final String CID;
+    private final Integer Grade;
 
     public Grade(String studentID, String courseID, Integer Grade) {
         this.SID = studentID;
@@ -11,30 +12,12 @@ public class Grade {
         this.Grade = Grade;
     }
 
-    public String getSID() {
-        return SID;
-    }
-
-    public void setSID(String SID) {
-        this.SID = SID;
-    }
-
-    public String getCID() {
-        return CID;
-    }
-
-    public void setCID(String CID) {
-        this.CID = CID;
-    }
 
     public Integer getGrade() {
         return Grade;
     }
 
-    public void setGrade(Integer grade) {
-        Grade = grade;
-    }
-
+    // to-string there there are used to display the information there are retrieved
     @Override
     public String toString() {
         return "" + Grade;

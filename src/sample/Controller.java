@@ -11,23 +11,30 @@ import java.sql.SQLException;
 
 public class Controller {
 
+    // making a box for selection of studentID and CourseID
     public ComboBox comboBoxSearchStudentID;
-
     public ComboBox comboBoxSearchCourseID;
 
+    // making a box for inserting grades for students with null
     public ComboBox comboBoxStudentsInsertGrade;
     public ComboBox comboBoxCoursesInsertGrade;
     public ComboBox comboBoxGradesInsertGrade;
 
+    // making a box and a display filed for the information on a student
     public Button buttonSearchForInfoStudent;
     public TextArea textAreaInfoStudent;
 
+    // making a box and display field for the information on a course
     public Button buttonStartSearch;
     public TextArea textAreaInfoCourse;
 
+    // button and display field for the null grades, and
+    // a box to select the given student with null grade from the course
     public Button buttonInsertGrade;
     public TextArea textAreaInsertGrade;
 
+    // makes observable lists for the three data-types and two for the null students and course
+    // so it can be retrieved from the two classes there connects the grades to the courses and students
     ObservableList<Student> students = FXCollections.observableArrayList();
 
     ObservableList<Course> courses = FXCollections.observableArrayList();
@@ -39,12 +46,14 @@ public class Controller {
     ObservableList<Grade> addDanishGrades = FXCollections.observableArrayList();
 
 
-    // Enables Scene builder to set up the GUI with necessary relationships.
+    // Establish a connection between the scene builder and the or program
     public void initialize() {
 
+        // retrieves data from database
         DatabaseRetrievals DatRev = new DatabaseRetrievals();
 
 
+        // sets the items there can be selected in our combobox
         comboBoxSearchStudentID.setItems(students);
         comboBoxSearchCourseID.setItems(courses);
 
@@ -65,7 +74,7 @@ public class Controller {
 
             DatRev.ClearingOfUpdatingGrade();
 
-            // Imports the Student and Course tables from the Database to use for selection in the comboBoxes.
+            // Imports the student and course table, to be used in the combobox(selection)
             students = DatRev.QueryStatement_Students(students);
             courses = DatRev.QueryStatement_Courses(courses);
 
@@ -79,8 +88,8 @@ public class Controller {
 
     }
 
-    // Activates on pressing the button to fetch the info for a selected student
-    // and displays it in the appropriate textArea.
+    // Action for the button press to fetch the information for the selected object
+    // and displaying it in textarea connected to the selected button
     public void searchForInfoStudent(ActionEvent actionEvent) throws SQLException {
         textAreaInfoStudent.clear();
         // Error handling in case the button is pressed while no item is selected yet.
@@ -97,8 +106,6 @@ public class Controller {
         textAreaInfoStudent.appendText(DatRev.PepStatement_Info_Student(student.getStudentID()));
     }
 
-    // Activates on pressing the button to fetch the average grade for a selected course
-    // and displays it in the appropriate textArea.
     public void searchForInfoCourse(ActionEvent actionEvent) {
         textAreaInfoCourse.clear();
         // Error handling in case the button is pressed while no item is selected yet.
@@ -114,6 +121,7 @@ public class Controller {
         textAreaInfoCourse.appendText(DatRev.PepStatement_Info_Course(courses.getCourseID()));
     }
 
+    // inserts the missing grades with a button press action-event
     public void insertGrade(ActionEvent actionEvent) {
         textAreaInsertGrade.clear();
         if (comboBoxStudentsInsertGrade.getSelectionModel().getSelectedItem() == null ||
@@ -138,16 +146,17 @@ public class Controller {
 
     }
 
+    // a observable list for the grades we are able to give the students
     public ObservableList<Grade> addDanishGrades(ObservableList<Grade> danishGradingScale) {
-        Grade unacceptable = new Grade("", "", -3);
+        Grade unacceptable = new Grade("", "", -03);
         danishGradingScale.add(unacceptable);
         Grade inadequate = new Grade("", "", 00);
         danishGradingScale.add(inadequate);
         Grade adequate = new Grade("", "", 02);
         danishGradingScale.add(adequate);
-        Grade fair = new Grade("", "", 4);
+        Grade fair = new Grade("", "", 04);
         danishGradingScale.add(fair);
-        Grade good = new Grade("", "", 7);
+        Grade good = new Grade("", "", 07);
         danishGradingScale.add(good);
         Grade veryGood = new Grade("", "", 10);
         danishGradingScale.add(veryGood);
