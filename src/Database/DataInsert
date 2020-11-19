@@ -1,0 +1,49 @@
+
+-- Make a table for the Courses.
+INSERT INTO Courses (CourseName, CourseID, Year, Semester, Lector) VALUES ('Software Development','SDA',2019,'Autumn','Line R'),
+                                                                          ('Software Development','SDS',2020,'Spring','Line R'),
+                                                                          ('Essential Computing 1','ES1',2019,'Autumn','Ebbe W');
+
+-- Making table for students with their name, living place and the studentID
+INSERT INTO Student(StudentID, StudentName, City) VALUES   ('31', 'Olaf Olesen',     'Odense'),
+                                                           ('32', 'Alfred Jensen',   'Camas'),
+                                                           ('33', 'Aisha Lincoln',   'Nykoobing_F'),
+                                                           ('34', 'Anya Nielsen',    'Nykoobing_F'),
+                                                           ('35', 'Berta Bertelsen', 'Billund'),
+                                                           ('36', 'Eske Eriksen',    'Eskildstrup'),
+                                                           ('37', 'Salma Simonsen',  'Stockholm'),
+                                                           ('38', 'Jenet Jensen',    'Jyllinge'),
+                                                           ('39', 'Albert Antonsen', 'Soroe'),
+                                                           ('40', 'Theis Thomasen',  'Toolloose');
+
+
+INSERT INTO Grades(CID, SID, Grade) VALUES                      ('SDA', '31',12),
+                                                                ('ES1','31',12),
+
+                                                                ('SDA', '32',07),
+                                                                ('ES1','32',10),
+
+                                                                ('SDA', '33',12),
+                                                                ('ES1','33',10),
+
+                                                                ('ES1','34',12),
+                                                                ('SDS', '34',null),
+
+                                                                ('ES1','35',02),
+                                                                ('SDS', '35',null),
+
+                                                                ('ES1','36',10),
+                                                                ('SDS', '36',null),
+
+                                                                ('ES1','37',12),
+                                                                ('SDS', '37',null),
+
+                                                                ('ES1','38',07),
+                                                                ('SDS', '38',null),
+
+                                                                ('SDA', '39',10),
+                                                                ('ES1','39',07),
+
+                                                                ('SDA', '40',12),
+                                                                ('ES1','40',12);
+

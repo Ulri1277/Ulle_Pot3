@@ -1,0 +1,36 @@
+DROP TABLE IF EXISTS Courses;
+DROP TABLE IF EXISTS Student;
+DROP TABLE IF EXISTS Grades;
+
+CREATE TABLE  if not exists Courses(
+                                       CourseName TEXT,
+                                       CourseID   TEXT,
+                                       Year       INTEGER,
+                                       Semester   TEXT,
+                                       Lector     TEXT,
+
+                                       PRIMARY KEY (CourseID)
+);
+
+CREATE TABLE  if not exists Student(
+                                       StudentID   TEXT,
+                                       StudentName TEXT,
+                                       City        TEXT,
+
+                                       primary key (StudentID)
+);
+
+CREATE TABLE  if not exists Grades(
+                                      CID TEXT,
+                                      SID TEXT,
+
+                                      Grade INTEGER,
+
+                                      PRIMARY KEY (SID,CID),
+
+
+                                      FOREIGN KEY (SID) references Student(StudentID) on delete restrict on update cascade,
+                                      FOREIGN KEY (CID)  references Courses(CourseID)  on delete restrict on update cascade
+);
+
+

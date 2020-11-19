@@ -1,0 +1,19 @@
+
+-- Retrieves courses taken and the respective grades for a selected student.
+SELECT S1.StudentID, G1.SID, G1.Grade
+FROM Student AS S1
+         JOIN Grades AS G1 on S1.StudentID = G1.SID
+WHERE SID = ?;
+
+-- Retrieves the average grade of a student.
+SELECT AVG(Grade)
+FROM Grades
+WHERE SID = ?;
+
+-- Retrieves the average grade of a course.
+SELECT AVG(Grade)
+FROM Grades
+WHERE CID = ?;
+
+
+
