@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/src/sample/Controller.java" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/src/sample/Course.java" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/src/sample/DatabaseRetrievals.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/sample/Grade.java" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/src/sample/Main.java" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/src/sample/Student.java" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/src/sample/sample.fxml" dialect="SQLite" />
+    <file url="PROJECT" dialect="SQLite" />
+  </component>
+</project>

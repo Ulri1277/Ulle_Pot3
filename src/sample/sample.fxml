@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<TabPane xmlns:fx="http://javafx.com/fxml/1" minWidth="475.0" prefHeight="600.0" prefWidth="475.0"
+         tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="sample.Controller">
+    <Tab text="Find, Selected and change information in registering">
+        <GridPane>
+            <FlowPane GridPane.rowIndex="0">
+                <Label text="Choose Student Information:">
+                </Label>
+                <ComboBox fx:id="comboBoxSearchStudentID">
+                </ComboBox>
+                <Button fx:id="buttonSearchForInfoStudent" onAction="#searchForInfoStudent" text="Start Search"
+                        GridPane.columnIndex="1" GridPane.rowIndex="1">
+                </Button>
+                <GridPane.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                </GridPane.margin>
+            </FlowPane>
+            <TextArea fx:id="textAreaInfoStudent" minHeight="60.0" minWidth="450.0"
+                      text="Course taken, grade, average grade of the student" GridPane.rowIndex="1">
+                <GridPane.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0"/>
+                </GridPane.margin>
+            </TextArea>
+            <FlowPane GridPane.rowIndex="2">
+                <Label text="Choose Course Information:">
+                </Label>
+                <ComboBox fx:id="comboBoxSearchCourseID"/>
+                <Button fx:id="buttonStartSearch" onAction="#searchForInfoCourse" text="Start Search">
+                    <FlowPane.margin>
+                        <Insets/>
+                    </FlowPane.margin>
+                </Button>
+                <GridPane.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0"/>
+                </GridPane.margin>
+            </FlowPane>
+            <TextArea fx:id="textAreaInfoCourse" minHeight="60.0" minWidth="450.0"
+                      text="Course chosen, number of students, average grade in the course" GridPane.rowIndex="3">
+                <GridPane.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0"/>
+                </GridPane.margin>
+            </TextArea>
+            <Label text="Insert new grade for an ungraded student." GridPane.rowIndex="4">
+                <GridPane.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0"/>
+                </GridPane.margin>
+            </Label>
+            <FlowPane GridPane.rowIndex="5">
+                <Label text="Choose Student:"/>
+                <ComboBox fx:id="comboBoxStudentsInsertGrade"/>
+                <Label text="Choose Course:"/>
+                <ComboBox fx:id="comboBoxCoursesInsertGrade"/>
+                <Label text="Choose Grade:"/>
+                <ComboBox fx:id="comboBoxGradesInsertGrade"/>
+                <Button fx:id="buttonInsertGrade" onAction="#insertGrade" text="Insert Grade!"/>
+                <GridPane.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0"/>
+                </GridPane.margin>
+            </FlowPane>
+            <TextArea fx:id="textAreaInsertGrade" minHeight="60.0" minWidth="450.0"
+                      text="No new grades added for a student yet." GridPane.rowIndex="6">
+                <GridPane.margin>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                </GridPane.margin>
+            </TextArea>
+            <rowConstraints>
+                <RowConstraints/>
+                <RowConstraints minHeight="25.0" prefHeight="70.0"/>
+                <RowConstraints minHeight="15.0" prefHeight="40.0"/>
+                <RowConstraints minHeight="25.0" prefHeight="70.0"/>
+                <RowConstraints minHeight="15.0" prefHeight="40.0"/>
+                <RowConstraints minHeight="45.0" prefHeight="60.0"/>
+                <RowConstraints minHeight="25.0" prefHeight="70.0"/>
+                <RowConstraints/>
+            </rowConstraints>
+            <columnConstraints>
+                <ColumnConstraints/>
+            </columnConstraints>
+        </GridPane>
+    </Tab>
+
+</TabPane>
